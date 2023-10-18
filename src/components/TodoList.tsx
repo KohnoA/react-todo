@@ -1,7 +1,7 @@
 import { useAppSelector, useAppDispatch } from '@/store';
 import { removeTodoList } from '@/store/slices/todoListSlice';
 import TodoItem from './TodoItem';
-import trashImg from '@/assets/icons/trash.svg';
+import trashImg from '/assets/icons/trash.svg';
 
 export default function TodoList() {
   const todoList = useAppSelector((state) => state.todoList.list);
