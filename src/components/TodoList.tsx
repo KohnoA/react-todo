@@ -14,17 +14,17 @@ export default function TodoList() {
   if (!todoList.length) return null;
 
   return (
-    <section className="relative max-w-3xl mx-auto my-0 p-5 text-slate-50 bg-[rgb(0,0,0,0.5)] backdrop-blur-lg rounded-lg shadow-lg drop-shadow-md">
-      <h2 className="mb-5 pb-5 text-3xl text-center border-b-2 border-opacityGrey [text-shadow:_0_0_40px_rgb(0_0_0_/_60%)]">
+    <section className="relative max-w-3xl max-md:max-w-xl mx-auto my-0 p-5 max-md:p-3 text-slate-50 bg-[rgb(0,0,0,0.5)] backdrop-blur-lg rounded-lg shadow-lg drop-shadow-md">
+      <h2 className="mb-5 max-md:mb-3 pb-5 max-md:pb-3 text-3xl max-md:text-2xl max-sm:text-xl text-center border-b-2 border-opacityGrey [text-shadow:_0_0_40px_rgb(0_0_0_/_60%)]">
         Your Todos
       </h2>
 
       <button
         onClick={removeTodoListHandler}
-        className="absolute top-5 right-5 p-2 opacity-60 transition-opacity hover:opacity-100 active:opacity-30"
+        className="absolute top-5 max-md:top-2.5 right-5 max-md:right-2 p-2 opacity-60 transition-opacity hover:opacity-100 active:opacity-30"
         title="Remove Todo List"
       >
-        <img src={trashImg} width={25} height={25} alt="Remove Todo List" />
+        <img src={trashImg} className="w-[25px] h-[25px] max-md:w-[22px] max-md:h-[22px]" alt="Remove Todo List" />
       </button>
 
       <ul>

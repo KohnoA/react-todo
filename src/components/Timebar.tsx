@@ -35,11 +35,11 @@ export default function Timebar() {
   }, []);
 
   return (
-    <section className="text-slate-50 text-center mb-10">
-      <p className="text-8xl mb-5 drop-shadow-md [text-shadow:_0_0_40px_rgb(0_0_0_/_60%)]">
+    <section className="text-slate-50 text-center mb-10 max-sm:mb-5">
+      <p className="text-8xl max-md:text-6xl max-sm:text-5xl mb-5 max-md:mb-3 drop-shadow-md [text-shadow:_0_0_40px_rgb(0_0_0_/_60%)]">
         {time}
       </p>
-      <p className="text-5xl mb-5 drop-shadow-md [text-shadow:_0_0_40px_rgb(0_0_0_/_60%)]">
+      <p className="text-5xl max-md:text-3xl max-sm:text-2xl mb-5 max-md:mb-3 drop-shadow-md [text-shadow:_0_0_40px_rgb(0_0_0_/_60%)]">
         {date}
       </p>
     </section>
