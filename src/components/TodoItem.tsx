@@ -1,11 +1,7 @@
-import { type todoItemType } from '@/types';
-import {
-  removeTodo,
-  toggleComplitedTodo,
-  editTodoTitle,
-} from '@/store/slices/todoListSlice';
-import { useAppDispatch } from '@/store';
 import { useState } from 'react';
+import { type todoItemType } from '@/types';
+import { useAppDispatch } from '@/store';
+import { removeTodoItem, editTodoTitle, toggleTodoStatus } from '@/store/actions';
 
 type TodoItemProps = {
   priority: number;
@@ -19,17 +15,17 @@ export default function TodoItem({ data, priority }: TodoItemProps) {
   const dispatch = useAppDispatch();
 
   const removeTodoItemHandler = () => {
-    dispatch(removeTodo(id));
+    dispatch(removeTodoItem(id));
   };
 
   const toggleTodoItemHandler = () => {
-    dispatch(toggleComplitedTodo(id));
+    dispatch(toggleTodoStatus(id));
     setIsEditMode(false);
   };
 
   const toggleEditMode = () => {
     if (!newTitle.length) {
-      dispatch(removeTodo(id));
+      dispatch(removeTodoItem(id));
     } else if (title !== newTitle) {
       dispatch(editTodoTitle({ id, newTitle }));
     }

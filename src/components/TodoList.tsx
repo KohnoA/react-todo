@@ -1,17 +1,17 @@
 import { useAppSelector, useAppDispatch } from '@/store';
-import { removeTodoList } from '@/store/slices/todoListSlice';
+import { removeTodoList } from '@/store/actions/todosActions';
 import TodoItem from './TodoItem';
 import trashImg from '/assets/icons/trash.svg';
 
 export default function TodoList() {
-  const todoList = useAppSelector((state) => state.todoList.list);
+  const { todos } = useAppSelector((state) => state.todos);
   const dispatch = useAppDispatch();
 
   const removeTodoListHandler = () => {
     dispatch(removeTodoList());
   };
 
-  if (!todoList.length) return null;
+  if (!todos.length) return null;
 
   return (
     <section className="relative max-w-3xl max-md:max-w-xl mx-auto my-0 p-5 max-md:p-3 text-slate-50 bg-[rgb(0,0,0,0.5)] backdrop-blur-lg rounded-lg shadow-lg drop-shadow-md">
@@ -28,7 +28,7 @@ export default function TodoList() {
       </button>
 
       <ul>
-        {todoList.map((todo, index) => (
+        {todos.map((todo, index) => (
           <TodoItem key={todo.id} data={todo} priority={index + 1} />
         ))}
       </ul>
