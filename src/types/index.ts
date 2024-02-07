@@ -1,7 +1,13 @@
 import { TodosActions } from '@/constants';
 
 export interface TodosStateType {
+  isLoading: boolean;
   todos: todoItemType[];
+}
+
+export interface SetLoadingTodosActionType {
+  type: TodosActions.SET_LOADING_TODOS;
+  payload: boolean;
 }
 
 export interface SetTodoListActionType {
@@ -30,7 +36,7 @@ export interface ToggleTodoStatusActionType {
 
 export interface EditTodoTitleActionType {
   type: TodosActions.EDIT_TODO_TITLE;
-  payload: { id: number, newTitle: string };
+  payload: { id: number; newTitle: string };
 }
 
 export interface RemoveTodoListActionType {
@@ -44,10 +50,11 @@ export type TodosActionsType =
   | EditTodoTitleActionType
   | RemoveTodoListActionType
   | GetTodoListActionType
-  | SetTodoListActionType;
+  | SetTodoListActionType
+  | SetLoadingTodosActionType;
 
 export type todoItemType = {
-  id: number,
-  title: string,
-  complited: boolean,
+  id: number;
+  title: string;
+  complited: boolean;
 };

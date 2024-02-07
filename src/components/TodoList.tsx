@@ -5,7 +5,7 @@ import TodoItem from './TodoItem';
 import trashImg from '/assets/icons/trash.svg';
 
 export default function TodoList() {
-  const { todos } = useAppSelector((state) => state.todos);
+  const { todos, isLoading } = useAppSelector((state) => state.todos);
   const dispatch = useAppDispatch();
 
   const removeTodoListHandler = () => {
@@ -15,6 +15,10 @@ export default function TodoList() {
   useEffect(() => {
     dispatch(getTodoList());
   }, [dispatch]);
+
+  if (isLoading) {
+    return <p className="m-10 text-3xl text-center text-slate-50">Loading...</p>
+  }
 
   if (!todos.length) return null;
 

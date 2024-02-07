@@ -6,6 +6,7 @@ export enum TodosActions {
   TOGGLE_TODO_STATUS = 'TOGGLE_TODO_STATUS',
   EDIT_TODO_TITLE = 'EDIT_TODO_TITLE',
   REMOVE_TODO_LIST = 'REMOVE_TODO_LIST',
+  SET_LOADING_TODOS = 'SET_LOADING_TODOS'
 }
 
 export const API_BREAKPOINT = 'https://jsonplaceholder.typicode.com/todos';

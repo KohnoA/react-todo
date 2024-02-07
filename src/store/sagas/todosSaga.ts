@@ -1,12 +1,14 @@
 import { TodosActions } from '@/constants';
 import { getTodos, deleteTodo, addTodo, toggleTodoStatus, editTodoTitle } from '@/services';
 import { call, put, takeEvery, select, takeLatest } from 'redux-saga/effects';
-import { setTodoList } from '../actions/todosActions';
+import { setLoadingTodos, setTodoList } from '../actions/todosActions';
 import { AddTodoActionType, EditTodoTitleActionType, RemoveTodoActionType, ToggleTodoStatusActionType, todoItemType } from '@/types';
 
 function* setTodosWorker() {
+  yield put(setLoadingTodos(true));
   const todos: todoItemType[] = yield call(getTodos);
   yield put(setTodoList(todos));
+  yield put(setLoadingTodos(false));
 }
 
 function* deleteTodoWorker(action: RemoveTodoActionType) {

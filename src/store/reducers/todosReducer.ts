@@ -2,6 +2,7 @@ import { TodosActions } from '@/constants';
 import { TodosActionsType, TodosStateType } from '@/types';
 
 const initialState: TodosStateType = {
+  isLoading: false,
   todos: [],
 };
 
@@ -44,7 +45,10 @@ export const todosReducer = (
       return { ...state, todos: initialState.todos };
 
     case TodosActions.SET_TODO_LIST:
-      return { ...state, todos: action.payload }
+      return { ...state, todos: action.payload };
+    
+    case TodosActions.SET_LOADING_TODOS:
+      return { ...state, isLoading: action.payload };
 
     default:
       return state;
