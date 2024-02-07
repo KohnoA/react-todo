@@ -1,6 +1,6 @@
 import { TodosActions } from '@/constants';
 import { getTodos, deleteTodo, addTodo, toggleTodoStatus, editTodoTitle } from '@/services';
-import { call, put, takeEvery, select } from 'redux-saga/effects';
+import { call, put, takeEvery, select, takeLatest } from 'redux-saga/effects';
 import { setTodoList } from '../actions/todosActions';
 import { AddTodoActionType, EditTodoTitleActionType, RemoveTodoActionType, ToggleTodoStatusActionType, todoItemType } from '@/types';
 
@@ -28,7 +28,7 @@ function* editTodoTitleWorker(action: EditTodoTitleActionType) {
 }
 
 export function* todoWatcher() {
-  yield takeEvery(TodosActions.GET_TODO_LIST, setTodosWorker);
+  yield takeLatest(TodosActions.GET_TODO_LIST, setTodosWorker);
   yield takeEvery(TodosActions.REMOVE_TODO_ITEM, deleteTodoWorker);
   yield takeEvery(TodosActions.ADD_TODO_ITEM, addTodoWorker);
   yield takeEvery(TodosActions.TOGGLE_TODO_STATUS, toggleTodoWorker);
