@@ -6,7 +6,18 @@ import {
   ToggleTodoStatusActionType,
   EditTodoTitleActionType,
   RemoveTodoListActionType,
+  GetTodoListActionType,
+  SetTodoListActionType
 } from '@/types';
+
+export const setTodoList = (payload: todoItemType[]): SetTodoListActionType  => ({
+  type: TodosActions.SET_TODO_LIST,
+  payload
+});
+
+export const getTodoList = (): GetTodoListActionType  => ({
+  type: TodosActions.GET_TODO_LIST,
+});
 
 export const addTodoItem = (newTodo: todoItemType): AddTodoActionType => ({
   type: TodosActions.ADD_TODO_ITEM,

@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/store';
-import { removeTodoList } from '@/store/actions/todosActions';
+import { getTodoList, removeTodoList } from '@/store/actions/todosActions';
 import TodoItem from './TodoItem';
 import trashImg from '/assets/icons/trash.svg';
 
@@ -10,6 +11,10 @@ export default function TodoList() {
   const removeTodoListHandler = () => {
     dispatch(removeTodoList());
   };
+
+  useEffect(() => {
+    dispatch(getTodoList());
+  }, [dispatch]);
 
   if (!todos.length) return null;
 

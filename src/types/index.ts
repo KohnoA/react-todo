@@ -4,6 +4,15 @@ export interface TodosStateType {
   todos: todoItemType[];
 }
 
+export interface SetTodoListActionType {
+  type: TodosActions.SET_TODO_LIST;
+  payload: todoItemType[];
+}
+
+export interface GetTodoListActionType {
+  type: TodosActions.GET_TODO_LIST;
+}
+
 export interface AddTodoActionType {
   type: TodosActions.ADD_TODO_ITEM;
   payload: todoItemType;
@@ -33,7 +42,9 @@ export type TodosActionsType =
   | RemoveTodoActionType
   | ToggleTodoStatusActionType
   | EditTodoTitleActionType
-  | RemoveTodoListActionType;
+  | RemoveTodoListActionType
+  | GetTodoListActionType
+  | SetTodoListActionType;
 
 export type todoItemType = {
   id: number,

@@ -43,6 +43,9 @@ export const todosReducer = (
     case TodosActions.REMOVE_TODO_LIST:
       return { ...state, todos: initialState.todos };
 
+    case TodosActions.SET_TODO_LIST:
+      return { ...state, todos: action.payload }
+
     default:
       return state;
   }
