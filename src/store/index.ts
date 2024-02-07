@@ -1,8 +1,15 @@
 import { legacy_createStore } from 'redux';
 import { rootReducer } from './reducers';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
-export const store = legacy_createStore(rootReducer);
+const initialState = {};
+
+export const store = legacy_createStore(
+  rootReducer,
+  initialState,
+  composeWithDevTools()
+);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
